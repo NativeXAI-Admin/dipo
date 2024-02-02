@@ -14,18 +14,17 @@ app = Flask(__name__)
 
 @app.route('/webhook2', methods=['POST'])
 async def webhook():
-    miniasshole_responses = [
-        "figure it out. ",
-        "Please don't call dipo",
-        "I took pride in a crappy work",
-        "yeah I wrote it all but I don't know how it works too.",
-        "OMG. Dipo isn't debugging it for you."
+    random_responses = [
+        "hey, I think you made a mistake.",
+        "Please try a different query.",
+        'Try {"queryResult": {"queryText": "Hello, how are you?"}}',
+        'Try agin, Take a break and try again.'
     ]
     try:
         would_be_filled
         return jsonify({'fulfillmentText': response})
     except:
-        return jsonify({'fulfillmentText': random.choice(miniasshole_responses)})
+        return jsonify({'fulfillmentText': random.choice(random_responses)})
 
 if __name__ == "__main__":
     app.run()
